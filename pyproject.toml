@@ -85,3 +85,13 @@ exclude_lines = [
     "if TYPE_CHECKING:",
     "raise NotImplementedError()",
 ]
+
+[tool.codeflash]
+# All paths are relative to this pyproject.toml's directory.
+module-root = "elementpath"
+tests-root = "tests"
+test-framework = "unittest"
+benchmarks-root = "tests\\benchmarks"
+ignore-paths = []
+disable-telemetry = false
+formatter-cmds = ["disabled"]

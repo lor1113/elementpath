@@ -2,6 +2,10 @@
 CHANGELOG
 *********
 
+`v5.1.3`_ (2026-06-28)
+======================
+* Fix protection against type cast errors during the static analysis phase
+
 `v5.1.2`_ (2026-06-13)
 ======================
 * Include PR #101 (invalid sequence type error code for external functions)
@@ -543,3 +547,4 @@ CHANGELOG
 .. _v5.1.0: https://github.com/sissaschool/elementpath/compare/v5.0.4...v5.1.0
 .. _v5.1.1: https://github.com/sissaschool/elementpath/compare/v5.1.0...v5.1.1
 .. _v5.1.2: https://github.com/sissaschool/elementpath/compare/v5.1.1...v5.1.2
+.. _v5.1.3: https://github.com/sissaschool/elementpath/compare/v5.1.2...v5.1.3

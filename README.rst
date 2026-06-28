@@ -105,12 +105,8 @@ avoiding the loading of XPath 3.1 implementation:
     0.7853981633974483
 
 
-Contributing
-============
-
-You can contribute to this package reporting bugs, using the issue tracker or by a pull request.
-In case you open an issue please try to provide a test or test data for reproducing the wrong
-behaviour. The provided testing code shall be added to the tests of the package.
+About parsers
+=============
 
 The XPath parsers are based on an implementation of the Pratt's Top Down Operator Precedence parser.
 The implemented parser includes some lookup-ahead features, helpers for registering tokens and for
@@ -120,6 +116,14 @@ and for a basic usage of the parser.
 
 If you like you can use the basic parser and tokens provided by the *tdop.py* module to
 implement other types of parsers (I think it could be also a funny exercise!).
+
+
+Contributing
+============
+
+Contributions to this package are welcome. Please see the `CONTRIBUTING.rst`
+file for guidelines on how to contribute, including the development setup,
+testing, and our AI policy.
 
 
 License

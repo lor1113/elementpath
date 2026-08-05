@@ -33,7 +33,7 @@ from elementpath.datatypes import AbstractBinary, AbstractDateTime, AnyAtomicTyp
     Language, NumericProxy, Timezone, UntypedAtomic
 from elementpath.namespaces import XML_BASE, XPATH_FUNCTIONS_NAMESPACE
 from elementpath.helpers import collapse_white_spaces, is_xml_codepoint, \
-    escape_json_string, unescape_json_string, not_equal
+    escape_json_string, unescape_json_string, not_equal, is_allowed_uri
 from elementpath.sequences import xlist
 from elementpath.etree import etree_iter_strings, is_etree_element
 from elementpath.collations import CollationManager
@@ -697,16 +697,18 @@ def evaluate__parse_json_functions(self: XPathFunction, context: ta.ContextType 
         if href is None:
             return []
 
-        try:
-            if urlsplit(href).scheme:
-                with urlopen(href) as fp:
-                    json_text = fp.read().decode('utf-8')
-            else:
-                with pathlib.Path(href).open() as fp:
-                    json_text = fp.read()
-        except IOError:
-            raise self.error('FOUT1170') from None
-
+        if not is_allowed_uri(href, self.parser.allow_external_resources):
+            raise self.error('FOUT1170', f'URI {href} is not allowed')
+        else:
+            try:
+                if urlsplit(href).scheme:
+                    with urlopen(href) as fp:
+                        json_text = fp.read().decode('utf-8')
+                else:
+                    with pathlib.Path(href).open() as fp:
+                        json_text = fp.read()
+            except IOError:
+                raise self.error('FOUT1170') from None
     else:
         href = None
         json_text = self.get_argument(context, cls=str)

@@ -77,7 +77,7 @@ def cast_numeric_type(self: XPathConstructor, value: ta.AtomicType) -> ta.Numeri
         return cast(ta.NumericType, value)
 
     try:
-        return cast(float, NumericProxy(value))  # type: ignore[arg-type]
+        return NumericProxy(value)  # type: ignore[arg-type]
     except ValueError as err:
         if isinstance(value, (str, UntypedAtomic)):
             raise self.error('FORG0001', err)
@@ -1176,7 +1176,7 @@ def evaluate__xml_to_json(self: XPathFunction, context: ta.ContextType = None) \
                 value = ''.join(etree_iter_strings(child))
                 try:
                     if self.parser.xsd_version == '1.0':
-                        number = cast(float, DoubleProxy10(value))
+                        number = DoubleProxy10(value)
                     else:
                         number = cast(float, DoubleProxy(value))
                 except ValueError:

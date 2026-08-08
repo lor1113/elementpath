@@ -318,14 +318,17 @@ class HelperFunctionsTest(unittest.TestCase):
         self.assertTrue(is_allowed_uri('urn:isbn:0451450523', ['urn:']))
 
         self.assertFalse(is_allowed_uri('mailto:user@example.com', ['mailto:user@example.com']))
-        self.assertTrue(is_allowed_uri('http://example.com/path?query=value', allow_external_resources))
-        self.assertTrue(is_allowed_uri('http://example.com/path#fragment', allow_external_resources))
+        self.assertTrue(is_allowed_uri('http://example.com/path?query=value',
+                                       allow_external_resources))
+        self.assertTrue(is_allowed_uri('http://example.com/path#fragment',
+                                       allow_external_resources))
         self.assertFalse(is_allowed_uri('http://example.com:8080/path', allow_external_resources))
         self.assertFalse(is_allowed_uri('http://user:pass@example.com', allow_external_resources))
         self.assertFalse(is_allowed_uri('http://192.168.1.1', allow_external_resources))
         self.assertFalse(
             is_allowed_uri('http://[::1]', allow_external_resources))
-        self.assertFalse(is_allowed_uri('http://www.example.com/path%20with%20spaces', allow_external_resources))
+        self.assertFalse(is_allowed_uri('http://www.example.com/path%20with%20spaces',
+                                        allow_external_resources))
         self.assertFalse(is_allowed_uri('scheme://example.com', allow_external_resources))
         self.assertFalse(is_allowed_uri('a:b', allow_external_resources))
 

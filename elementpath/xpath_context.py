@@ -84,6 +84,7 @@ class XPathContext:
     root: Optional[ta.RootNodeType]
     document: DocumentNode | None
     item: ta.ItemType
+    size: int | None
 
     documents: dict[str, DocumentNode] | None = None
     collections: dict[str, list[XPathNode]] | None = None

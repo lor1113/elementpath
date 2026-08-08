@@ -431,7 +431,7 @@ def is_allowed_uri(uri: str, allow_external_resources: bool | list[str] = False)
             if uri.startswith(base_uri):
                 return True
         else:
-            path = normpath(parts.path)
+            path = normpath(parts.path).replace('\\', '/')
             if parts.scheme == 'file' and (path.count('/') < 2 or path.startswith(UNSAFE_PATHS)):
                 return False
             url = urlunsplit((parts.scheme, parts.netloc, path, parts.fragment, parts.query))

@@ -2,6 +2,12 @@
 CHANGELOG
 *********
 
+`v5.1.4`_ (2026-08-08)
+======================
+* Add *allow_environment* and *allow_external_resources* arguments to XPath30Parser
+* some/every statements: revert to v4.8 implementation (fix issue #106)
+* reverse axis position: workaround until next minor-version (issue #105)
+
 `v5.1.3`_ (2026-06-28)
 ======================
 * Fix protection against type cast errors during the static analysis phase
@@ -548,3 +554,4 @@ CHANGELOG
 .. _v5.1.1: https://github.com/sissaschool/elementpath/compare/v5.1.0...v5.1.1
 .. _v5.1.2: https://github.com/sissaschool/elementpath/compare/v5.1.1...v5.1.2
 .. _v5.1.3: https://github.com/sissaschool/elementpath/compare/v5.1.2...v5.1.3
+.. _v5.1.4: https://github.com/sissaschool/elementpath/compare/v5.1.3...v5.1.4

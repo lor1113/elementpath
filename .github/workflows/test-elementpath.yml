@@ -35,10 +35,10 @@ jobs:
         run: |
           pip install flake8
           flake8 elementpath --max-line-length=100 --statistics
-      - name: Lint with mypy==2.1.0
+      - name: Lint with mypy==2.3.0
         if: ${{ matrix.python-version != 'pypy-3.10' && matrix.python-version != 'pypy-3.11' }}
         run: |
-          pip install mypy==2.1.0 xmlschema lxml-stubs
+          pip install mypy==2.3.0 xmlschema lxml-stubs
           mypy --show-error-codes --strict elementpath
       - name: Install lxml optional dependency
         if: |
